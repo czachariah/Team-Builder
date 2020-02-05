@@ -15,7 +15,7 @@ public class ProjectManager
       while ( !done )
       {
          String command = stdin.next();
-         switch (   command             )  
+         switch (command)  
          {   
             case "A": add();
 		      break;     
