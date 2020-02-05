@@ -20,19 +20,20 @@ public class Date
    
    public boolean isValid()
    {
-       
+       return true;
    }
    
    @Override
    public String toString()
    {
        //use the format "month/day/year"
+	   return null;
    }
    
    @Override
    public boolean equals(Object obj)
    {
-       
+       return true;
    }  
 }
 

@@ -14,17 +14,19 @@ public class TeamMember
    
    public Date getStartDate()
    {
-      
+      return null;
    }
    
    public boolean equals(Object obj)
    {
       //name and startDate must be the same
+	   return true;
    }  
    
    public String toString()
    {
        //name + " " + startDate;
+	   return null;
    }
 
    public static void main(String [] args)

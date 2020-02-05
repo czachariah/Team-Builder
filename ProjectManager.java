@@ -1,3 +1,4 @@
+import java.util.Scanner; 
 /**
   
  @author  
@@ -14,13 +15,10 @@ public class ProjectManager
       while ( !done )
       {
          String command = stdin.next();
-         switch (                )  
+         switch (   command             )  
          {   
-            case 'A': add();
-		      break; 
-            case  
-            case               
-            case     
+            case "A": add();
+		      break;     
             default: //deal with bad command here 
          }  
       }

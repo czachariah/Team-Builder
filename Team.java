@@ -16,7 +16,7 @@ public class Team
    
    private int find(TeamMember m)
    {
-       
+       return 1;
    }
    
    private void grow()
@@ -26,7 +26,7 @@ public class Team
    
    public boolean isEmpty()
    {
-       
+       return true;
    }
    
    public void add(TeamMember m)
@@ -36,12 +36,12 @@ public class Team
    
    public boolean remove(TeamMember m)
    {
-       
+       return true;
    } 
    
    public boolean contains(TeamMember m)
    {
-      
+      return true;
    } 
    
    public void print()
