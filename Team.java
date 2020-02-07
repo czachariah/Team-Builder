@@ -9,9 +9,12 @@ public class Team
    private TeamMember [] team;
    private int numMembers;
    
+   /**
+    * This is the default constructor where an array of Team Members will be initialized.
+    */
    public Team()
    {
-      //this is the default constructor
+      team = new TeamMember[GROW_SIZE];
    }
    
    private int find(TeamMember m)
@@ -23,11 +26,19 @@ public class Team
    {
        
    }
-   
+   /**
+    * This method will check if team is empty or not.
+    * @return true if empty or false otherwise
+    */
    public boolean isEmpty()
    {
-       return true;
-   }
+       if (team[0] == null)
+       {
+    	   return true;
+       } else {
+    	   return false;
+       }
+   } // isEmpty()
    
    public void add(TeamMember m)
    {     

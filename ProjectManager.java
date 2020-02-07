@@ -7,22 +7,17 @@ public class ProjectManager
 {
    Scanner stdin;
    Team cs213;
+   
    public void run()
    {
+	   System.out.println("Let's start a new team!");
 	   stdin = new Scanner(System.in);
+	   cs213 = new Team();
+	   
 	   boolean done = false;
-	   while ( !done )
+	   while (!done)
 	   {
          String command = stdin.next();
-        
-         if (command.length() != 1) // make sure that the command is formatted correctly
-         {
-        	 if (command.charAt(1) != ' ')
-        	 {
-        		 
-        	 }
-        	 System.out.println("here");
-         }
          switch (command.charAt(0))  
          {
             case 'A': add();
@@ -42,7 +37,13 @@ public class ProjectManager
    
    private void add()
    {
-	   System.out.println("adding");
+	   String name;
+	   name = stdin.next();
+	   
+	   String date;
+	   date = stdin.next();
+	   
+	   System.out.println("adding "+ name + " " + date);
       	//must check if the date is valid
 	//must call the contains() method to check if a given 
 	//team member is in the team already
@@ -50,7 +51,13 @@ public class ProjectManager
    
    private void remove()
    {
-	   System.out.println("removing");
+	   String name;
+	   name = stdin.next();
+	   
+	   String date;
+	   date = stdin.next();
+	   
+	   System.out.println("removing "+ name + " " + date);
       //must check if the date is valid
 	   
    } // remove()
