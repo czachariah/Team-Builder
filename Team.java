@@ -1,6 +1,7 @@
 /**
-  
- @author  
+  This method makes the team of members.
+  The methods are used to add to, remove from or print from the current set of team members.
+ @author  Chris Zachariah (cvz2)
  */
 public class Team 
 {

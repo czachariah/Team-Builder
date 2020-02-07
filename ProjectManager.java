@@ -1,5 +1,7 @@
 import java.util.Scanner; 
 /**
+ * This class is called when running the program.
+ * The methods are the different commands that can be run to change the set of team members.
  @author Chris Zachariah (cvz2)
  */
  
@@ -26,12 +28,11 @@ public class ProjectManager
             	break;
             case 'P': print();
             	break;
-            case 'Q': print(); done = !done;
+            case 'Q': print(); done = !done; // terminate the program
             	break;
             default: System.out.println("Command '"+ command.charAt(0) +"' is not supported");	//deal with bad command here 
          } // ends the switch statement 
       } // ends the while loop
-      //write java code before you terminate the program
       System.out.println("The team is ready to go!");
    } // run()
    
