@@ -1,6 +1,6 @@
 import java.util.*; 
 /**
-  This method makes the Date object that is used in other classes.
+  This class makes the Date object that is used in other classes.
  @author  Chris Zachariah (cvz2)
  */
 public class Date 
@@ -44,7 +44,7 @@ public class Date
 			   || (month == Month.JUL) || (month == Month.AUG) 
 			   || (month == Month.OCT) || (month == Month.DEC))
 	   {
-		   if ((day >= 1) && (day <= 31))
+		   if ((day >= 1) && (day <= Month.DAYS_ODD))
 		   {
 			   return true;
 		   }
@@ -57,7 +57,7 @@ public class Date
 	   else if ((month == Month.APR) || (month == Month.JUN) || (month == Month.SEP) 
 			   || (month == Month.NOV))
 	   {
-		   if ((day >= 1) && (day <= 30))
+		   if ((day >= 1) && (day <= Month.DAYS_EVEN))
 		   {
 			   return true;
 		   }
@@ -69,7 +69,7 @@ public class Date
 	   // February
 	   else if (month == Month.FEB)
 	   {
-		   if ((day >= 1) && (day <= 28))
+		   if ((day >= 1) && (day <= Month.DAYS_FEB))
 		   {
 			   return true;
 		   }
@@ -100,11 +100,11 @@ public class Date
     */
    public boolean isLeapYear(int year) 
    {
-	   if ((year % 4) == 0)
+	   if ((year % Month.QUADRENNIAL) == 0)
 	   {
-		   if ((year % 100) == 0)
+		   if ((year % Month.CENTENNIAL) == 0)
 		   {
-			   if ((year % 400) == 0)
+			   if ((year % Month.QUATERCENTENNIAL) == 0)
 			   {
 				   return true;
 			   }

@@ -1,5 +1,5 @@
 /**
-  This method makes the team of members.
+  This class makes the team of members.
   The methods are used to add to, remove from or print from the current set of team members.
  @author  Chris Zachariah (cvz2)
  */
@@ -16,12 +16,24 @@ public class Team
    public Team()
    {
       team = new TeamMember[GROW_SIZE];
-   }
+   } // Team()
    
+   /**
+    * This private method is used to iterate through the team and find a specific team member.
+    * @param m
+    * @return index in the team array if the team member is found else -1
+    */
    private int find(TeamMember m)
    {
-       return 1;
-   }
+       for (int i = 0 ; i < numMembers ; i++) 
+       {
+    	   if (team[i].equals(m)) 
+    	   {
+    		   return i;
+    	   }
+       }
+	   return NOT_FOUND;
+   } // find()
    
    private void grow()
    {
@@ -43,7 +55,8 @@ public class Team
    
    public void add(TeamMember m)
    {     
-            
+	   team[0] = m;
+	   numMembers++;
    }
    
    public boolean remove(TeamMember m)
@@ -51,13 +64,40 @@ public class Team
        return true;
    } 
    
+   /**
+    * This method will tell the user if a specific team member is already inside the team.
+    * @param m
+    * @return true if the member is already in the team and false otherwise
+    */
    public boolean contains(TeamMember m)
    {
-      return true;
-   } 
+      if (find(m) != NOT_FOUND) 
+      {
+    	  return true;
+      }
+      else
+      {
+    	  return false;
+      }
+   } // contains
    
+   /**
+    * This method will print out all the current team members.
+    */
    public void print()
    {
-      //set up a for loop and call the toString() method
-   } 
-}
+	   if (team[0] != null) 
+	   {
+		   System.out.println("We have 0 team members!");
+	   }
+	   else 
+	   {
+		   System.out.println("We have the following team members: ");
+		   for(int i = 0 ; i < numMembers ; i++) 
+		   {
+			   team[i].toString();
+		   }
+		   System.out.println("-- end of the list --");
+	   }
+   } // print()
+}// Team
