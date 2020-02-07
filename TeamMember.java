@@ -1,6 +1,6 @@
 /**
  This class will store the private attributes, name and the startDate, of a team member, which then can be accessed by public methods.
- @author Chris Zachariah (cvz2)
+ @author Chris Zachariah (cvz2) 
  */
 public class TeamMember 
 {
