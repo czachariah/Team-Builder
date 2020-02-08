@@ -30,6 +30,10 @@ public class ProjectManager
             	break;
             case 'Q': print(); done = !done; // terminate the program
             	break;
+            case 'a': System.out.println("Command '"+ command.charAt(0) +"' is not supported!"); command = stdin.next(); command = stdin.next();
+	    		break;
+            case 'r': System.out.println("Command '"+ command.charAt(0) +"' is not supported!"); command = stdin.next(); command = stdin.next();
+        		break;	
             default: System.out.println("Command '"+ command.charAt(0) +"' is not supported!");	//deal with bad command here 
          } // ends the switch statement 
       } // ends the while loop
