@@ -34,11 +34,20 @@ public class Team
 	   }
 	   return NOT_FOUND;
    } // find()
-   
+   /**
+    * This method will grow the total size of the team by the GROW_SIZE
+    */
    private void grow()
    {
+       int newLength = team.length + GROW_SIZE;
+       TeamMember [] newTeam = new TeamMember[newLength];
        
-   }
+       for (int i = 0; i < team.length ; i++)	// move all the current team members to the new array
+       {
+    	   newTeam[i] = team[i];
+       }
+       team = newTeam;
+   } // grow()
    
    /**
     * This method will check if team is empty or not.
@@ -58,43 +67,64 @@ public class Team
    
    /**
     * This method will add a new member to the team as long as this person already does not exist in the team to begin with.
-    * @param m
+    * @param m is the new team member to add
     */
    public void add(TeamMember m)
    {     
-	   if (contains(m))
+	   if ((numMembers != 0) && (contains(m)))
 	   {
 		   System.out.println(m.toString() + " is already in the team.");
 	   }
 	   else 
 	   {
-		   int newPlace = NOT_FOUND;
-		   for (int i = 0 ; i < team.length ; i++)
-		   {
-			   if (team[i] == null)
-			   {
-				   newPlace = i;
-				   break;
-			   }
-		   }
 		   
-		   if (newPlace == NOT_FOUND)
+		   if (numMembers == team.length) // grow the array to add more members
 		   {
 			   grow();
-			   // try to add the person 
+			   team[numMembers] = m;
+			   System.out.println(team[numMembers].toString() + " has joined the team.");
+			   numMembers++;
 		   }
-		   else
+		   else 
 		   {
-			   team[newPlace] = m;
+			   team[numMembers] = m;
+			   System.out.println(team[numMembers].toString() + " has joined the team.");
 			   numMembers++;
 		   }
 	   }
    } // add()
    
+   /**
+    * This method will remove a specific member of the team.
+    * @param m is the team member to remove
+    * @return true if the team member has been removed, false otherwise
+    */
    public boolean remove(TeamMember m)
    {
-       return true;
-   } 
+       if ((numMembers != 0) && (contains(m)))
+       {
+    	   int place = find(m);
+    	   
+    	   if (place == (numMembers - 1))	// the last member in the array gets removed
+    	   {
+    		   team[place] = null;
+    		   numMembers--;
+    		   return true;
+    	   } 
+    	   else
+    	   {
+    		   team[place] = null;
+    		   team[place] = team[numMembers - 1];
+    		   team[numMembers - 1] = null;
+    		   numMembers--;
+    		   return true;
+    	   }
+       }
+       else 
+       {
+    	   return false;
+       }
+   } // remove()
    
    /**
     * This method will tell the user if a specific team member is already inside the team.
@@ -111,7 +141,7 @@ public class Team
       {
     	  return false;
       }
-   } // contains
+   } // contains()
    
    /**
     * This method will print out all the current team members.
@@ -124,7 +154,7 @@ public class Team
 	   }
 	   else 
 	   {
-		   System.out.println("We have the following " + numMembers +" team member(s): ");
+		   System.out.println("We have the following team members: ");
 		   for(int i = 0 ; i < numMembers ; i++) 
 		   {
 			   System.out.println(team[i].toString());

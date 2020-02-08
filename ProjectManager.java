@@ -30,7 +30,7 @@ public class ProjectManager
             	break;
             case 'Q': print(); done = !done; // terminate the program
             	break;
-            default: System.out.println("Command '"+ command.charAt(0) +"' is not supported");	//deal with bad command here 
+            default: System.out.println("Command '"+ command.charAt(0) +"' is not supported!");	//deal with bad command here 
          } // ends the switch statement 
       } // ends the while loop
       System.out.println("The team is ready to go!");
@@ -43,19 +43,13 @@ public class ProjectManager
 	   
 	   String date;
 	   date = stdin.next();
-	   
-	   if (name == null || date == null) 
-	   {
-		   System.out.println("Command used incorrectly. Usgae: A *name* *m/d/yyyy");
-	   }
-	   
+	  
 	   Date newDate = new Date(date);
 	   
 	   if (newDate.isValid()) {
 		   TeamMember newMember = new TeamMember(name,newDate);
 		   cs213.add(newMember);
 	   }
-	   // the date is not valid
 	   else 
 	   {
 		   System.out.println(date + " is not a valid date!");
@@ -74,11 +68,16 @@ public class ProjectManager
 	   Date newDate = new Date(date);
 	   
 	   if (newDate.isValid()) {
-		   TeamMember newMember = new TeamMember(name,newDate);
-		   cs213.remove(newMember);
-		   //System.out.println("removing "+ name + " " + date);
+		   TeamMember memberToRemove = new TeamMember(name,newDate);
+		   if (cs213.remove(memberToRemove))
+		   {
+			   System.out.println(memberToRemove.toString() + " has left the team.");
+		   }
+		   else 
+		   {
+			   System.out.println(memberToRemove.toString() + " is not a team member.");
+		   }
 	   }
-	   // the date is not valid
 	   else 
 	   {
 		   System.out.println(date + " is not a valid date!");
