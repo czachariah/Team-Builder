@@ -16,10 +16,31 @@ public class Date
     */
    public Date(String d)
    {
-	   StringTokenizer dateToConvert = new StringTokenizer(d,"/");
-	   month = Integer.parseInt(dateToConvert.nextToken());
-	   day = Integer.parseInt(dateToConvert.nextToken());
-	   year = Integer.parseInt(dateToConvert.nextToken());
+	   try 
+	   {
+		   StringTokenizer dateToConvert = new StringTokenizer(d,"/");
+		   month = Integer.parseInt(dateToConvert.nextToken());
+		   day = Integer.parseInt(dateToConvert.nextToken());
+		   
+		   // make sure that the year is 4 digits long
+		   String yearToCheck = dateToConvert.nextToken();
+		   if (yearToCheck.length() == 4)
+		   {
+			   year = Integer.parseInt(yearToCheck);
+		   }
+		   else 
+		   {
+			   month = 0;
+			   day = 0;
+			   year = 0;
+			   throw new ArithmeticException();
+		   }
+		   
+	   } catch (Exception e)
+	   {
+		   System.out.println("ERROR! The date is not given in correct form! \nFormat: m/d/yyyy (Month and Day can be 1 or 2 digits long. Year must be 4 digits long.");
+	   }
+	   
    } // Date()
    
    /**
@@ -98,7 +119,7 @@ public class Date
     * @param year is the year to check
     * @return true if leap year and false otherwise
     */
-   public boolean isLeapYear(int year) 
+   private boolean isLeapYear(int year) 
    {
 	   if ((year % Month.QUADRENNIAL) == 0)
 	   {
@@ -144,7 +165,8 @@ public class Date
    {
 	   if (obj instanceof Date) {
 		   Date pointer = (Date) obj;
-		   if ((pointer.day == day) && (pointer.month == month) && (pointer.year == year)) 
+
+		   if ((pointer.day == this.day) && (pointer.month == this.month) && (pointer.year == this.year)) 
 		   {
 			   return true;
 		   } 
@@ -162,6 +184,7 @@ public class Date
     */
    public static void main(String [] args)
    {
+	   
       
    } // main()
 } // Date

@@ -34,15 +34,13 @@ public class TeamMember
     */
    public boolean equals(Object obj)
    {
-	   if (obj instanceof TeamMember) {
+	   if (obj instanceof TeamMember) 
+	   {
 		   TeamMember pointer = (TeamMember) obj;
-		   if ((pointer.name == name) && (pointer.startDate == startDate)) 
+		  
+		   if ((this.name.equals(pointer.name)) && (this.getStartDate().equals(pointer.getStartDate())))
 		   {
 			   return true;
-		   } 
-		   else 
-		   {
-			   return false;
 		   }
 	   }
        return false;

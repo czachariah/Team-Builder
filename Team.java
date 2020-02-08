@@ -25,13 +25,13 @@ public class Team
     */
    private int find(TeamMember m)
    {
-       for (int i = 0 ; i < numMembers ; i++) 
-       {
-    	   if (team[i].equals(m)) 
-    	   {
-    		   return i;
-    	   }
-       }
+	   for (int i = 0 ; i < team.length ; i++)
+	   {
+		   if ((team[i] != null) && (team[i].equals(m)))
+		   {
+				   return i;
+		   }
+	   }
 	   return NOT_FOUND;
    } // find()
    
@@ -39,6 +39,7 @@ public class Team
    {
        
    }
+   
    /**
     * This method will check if team is empty or not.
     * @return true if empty or false otherwise
@@ -48,16 +49,47 @@ public class Team
        if (team[0] == null)
        {
     	   return true;
-       } else {
+       } 
+       else 
+       {
     	   return false;
        }
    } // isEmpty()
    
+   /**
+    * This method will add a new member to the team as long as this person already does not exist in the team to begin with.
+    * @param m
+    */
    public void add(TeamMember m)
    {     
-	   team[0] = m;
-	   numMembers++;
-   }
+	   if (contains(m))
+	   {
+		   System.out.println(m.toString() + " is already in the team.");
+	   }
+	   else 
+	   {
+		   int newPlace = NOT_FOUND;
+		   for (int i = 0 ; i < team.length ; i++)
+		   {
+			   if (team[i] == null)
+			   {
+				   newPlace = i;
+				   break;
+			   }
+		   }
+		   
+		   if (newPlace == NOT_FOUND)
+		   {
+			   grow();
+			   // try to add the person 
+		   }
+		   else
+		   {
+			   team[newPlace] = m;
+			   numMembers++;
+		   }
+	   }
+   } // add()
    
    public boolean remove(TeamMember m)
    {
@@ -86,16 +118,16 @@ public class Team
     */
    public void print()
    {
-	   if (team[0] != null) 
+	   if (isEmpty()) 
 	   {
 		   System.out.println("We have 0 team members!");
 	   }
 	   else 
 	   {
-		   System.out.println("We have the following team members: ");
+		   System.out.println("We have the following " + numMembers +" team member(s): ");
 		   for(int i = 0 ; i < numMembers ; i++) 
 		   {
-			   team[i].toString();
+			   System.out.println(team[i].toString());
 		   }
 		   System.out.println("-- end of the list --");
 	   }

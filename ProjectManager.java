@@ -28,7 +28,7 @@ public class ProjectManager
             	break;
             case 'P': print();
             	break;
-            case 'Q': print(); done = !done; //cs213.print();// terminate the program
+            case 'Q': print(); done = !done; // terminate the program
             	break;
             default: System.out.println("Command '"+ command.charAt(0) +"' is not supported");	//deal with bad command here 
          } // ends the switch statement 
@@ -44,6 +44,11 @@ public class ProjectManager
 	   String date;
 	   date = stdin.next();
 	   
+	   if (name == null || date == null) 
+	   {
+		   System.out.println("Command used incorrectly. Usgae: A *name* *m/d/yyyy");
+	   }
+	   
 	   Date newDate = new Date(date);
 	   
 	   if (newDate.isValid()) {
@@ -53,13 +58,8 @@ public class ProjectManager
 	   // the date is not valid
 	   else 
 	   {
-		   System.out.print(date + " is not a valid date!");
+		   System.out.println(date + " is not a valid date!");
 	   }
-	   
-	   //System.out.println("adding "+ name + " " + date);
-      	//must check if the date is valid
-	//must call the contains() method to check if a given 
-	//team member is in the team already
    } // add()
    
    private void remove()
@@ -76,17 +76,14 @@ public class ProjectManager
 	   if (newDate.isValid()) {
 		   TeamMember newMember = new TeamMember(name,newDate);
 		   cs213.remove(newMember);
+		   //System.out.println("removing "+ name + " " + date);
 	   }
 	   // the date is not valid
 	   else 
 	   {
-		   System.out.print(date + " is not a valid date!");
+		   System.out.println(date + " is not a valid date!");
 	   }
-	   
-	   
-	   
-	   System.out.println("removing "+ name + " " + date);
-      //must check if the date is valid
+	  
 	   
    } // remove()
    
