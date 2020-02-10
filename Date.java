@@ -1,8 +1,8 @@
-import java.util.*; 
 /**
   This class makes the Date object that is used in other classes.
  @author  Chris Zachariah (cvz2)
  */
+import java.util.*; 
 public class Date 
 {
    private int  day;
@@ -10,8 +10,8 @@ public class Date
    private int  year;
    
    /**
-    * This is a parameterized constructor that takes in a date in String from which the information
-    * will be converted to forms that can create a new Date object.
+    * This is a parameterized constructor that takes in a date in String form, from which the information
+    * will be converted to a new Date object.
     * @param d is a date in String form: month/day/year
     */
    public Date(String d)
@@ -34,11 +34,12 @@ public class Date
 			   day = 0;
 			   year = 0;
 			   throw new ArithmeticException();
-		   }
-		   
-	   } catch (Exception e)
+		   }  
+	   } 
+	   catch (Exception e)
 	   {
-		   System.out.println("ERROR! The date is not given in correct form! \nFormat: m/d/yyyy (Month and Day can be 1 or 2 digits long. Year must be 4 digits long.");
+		   System.out.println("ERROR! The date is not given in correct form! \n"
+		   		+ "Format: m/d/yyyy (Month and Day can be 1 or 2 digits long. Year must be 4 digits long.");
 	   }
 	   
    } // Date()
@@ -49,9 +50,9 @@ public class Date
     */
    public Date(Date d)
    {
-	   day = d.day;
-	   month = d.month;
-	   year = d.year;
+	   this.day = d.day;
+	   this.month = d.month;
+	   this.year = d.year;
    } // Date()
    
    /**
@@ -112,12 +113,12 @@ public class Date
 	   {
 		   return false;
 	   }  
-   } // isValid
+   } // isValid()
    
    /**
     * This method will check if the year is a leap year.
     * @param year is the year to check
-    * @return true if leap year and false otherwise
+    * @return true if it is a leap year and false otherwise
     */
    private boolean isLeapYear(int year) 
    {
@@ -157,7 +158,7 @@ public class Date
    
    /**
     * This method will compare another Date object with the current Date object to check to see if all the parameters (day, month and year) are the same.
-    * @param a Date object
+    * @param obj is a Date object
     * @return true if the other Data object has the same parameters as the current Date object, false otherwise
     */
    @Override

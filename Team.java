@@ -20,8 +20,8 @@ public class Team
    
    /**
     * This private method is used to iterate through the team and find a specific team member.
-    * @param m
-    * @return index in the team array if the team member is found else -1
+    * @param m is the Team Member to search for
+    * @return index in the team array where the team member is found or -1 if the member is not found
     */
    private int find(TeamMember m)
    {
@@ -34,6 +34,7 @@ public class Team
 	   }
 	   return NOT_FOUND;
    } // find()
+   
    /**
     * This method will grow the total size of the team by the GROW_SIZE
     */
@@ -77,7 +78,6 @@ public class Team
 	   }
 	   else 
 	   {
-		   
 		   if (numMembers == team.length) // grow the array to add more members
 		   {
 			   grow();
@@ -128,7 +128,7 @@ public class Team
    
    /**
     * This method will tell the user if a specific team member is already inside the team.
-    * @param m
+    * @param m is the team member that needs to be found
     * @return true if the member is already in the team and false otherwise
     */
    public boolean contains(TeamMember m)

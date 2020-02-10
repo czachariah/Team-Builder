@@ -23,4 +23,4 @@ public class Month
    public static final int QUADRENNIAL = 4;
    public static final int CENTENNIAL = 100;
    public static final int QUATERCENTENNIAL = 400;
-}
+} // Month

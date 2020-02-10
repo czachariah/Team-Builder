@@ -1,15 +1,18 @@
-import java.util.Scanner; 
 /**
  * This class is called when running the program.
  * The methods are the different commands that can be run to change the set of team members.
  @author Chris Zachariah (cvz2)
  */
- 
+import java.util.Scanner; 
 public class ProjectManager
 {
    Scanner stdin;
    Team cs213;
    
+   /**
+    * This method will be used to run the main program. The rest of the private methods
+    * are the accepted commands that will be used to manipulate the team.
+    */
    public void run()
    {
 	   System.out.println("Let's start a new team!");
@@ -38,8 +41,13 @@ public class ProjectManager
          } // ends the switch statement 
       } // ends the while loop
       System.out.println("The team is ready to go!");
+      stdin.close();
    } // run()
    
+   /**
+    * This method will be used to add new members to the team.
+    * The members must not already be on the team and the starting date must be valid.
+    */
    private void add()
    {
 	   String name;
@@ -60,9 +68,12 @@ public class ProjectManager
 	   }
    } // add()
    
+   /**
+    * This method will be used to remove members from the team.
+    * The member must be in the team with the matching starting date and the date must be valid.
+    */
    private void remove()
    {
-
 	   String name;
 	   name = stdin.next();
 	   
@@ -86,10 +97,12 @@ public class ProjectManager
 	   {
 		   System.out.println(date + " is not a valid date!");
 	   }
-	  
 	   
    } // remove()
    
+   /**
+    * This method will print the current members in the team.
+    */
    private void print()
    {
 	  cs213.print(); 

@@ -10,7 +10,7 @@ public class TeamMember
    /**
     * This is the parameterized constructor for the TeamMember class.
     * @param nm is the name of the person
-    * @param date is the starting date
+    * @param date is the starting date (Date object)
     */
    public TeamMember(String nm, Date date)
    {
@@ -47,7 +47,7 @@ public class TeamMember
    } // equals()
    
    /**
-    * This method will print the content of the current TeamMember's attributes.
+    * This method will print the contents of the current TeamMember's attributes.
     * @return the name and startDate in String form
     */
    public String toString()
