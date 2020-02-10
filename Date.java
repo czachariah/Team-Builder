@@ -1,8 +1,8 @@
+import java.util.*; 
 /**
   This class makes the Date object that is used in other classes.
  @author  Chris Zachariah (cvz2)
  */
-import java.util.*; 
 public class Date 
 {
    private int  day;

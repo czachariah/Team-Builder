@@ -1,9 +1,9 @@
+import java.util.Scanner; 
 /**
  * This class is called when running the program.
  * The methods are the different commands that can be run to change the set of team members.
  @author Chris Zachariah (cvz2)
  */
-import java.util.Scanner; 
 public class ProjectManager
 {
    Scanner stdin;
