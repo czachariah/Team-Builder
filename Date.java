@@ -181,7 +181,7 @@ public class Date
    
    /**
     * This is the testbed main where the constructor and the methods can be tested.
-    * @param args
+    * @param args are the arguments to test
     */
    public static void main(String [] args)
    {

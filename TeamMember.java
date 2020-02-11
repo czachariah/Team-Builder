@@ -29,7 +29,7 @@ public class TeamMember
    
    /**
     * This method will compare another TeamMember object with the current TeamMember object to check to see if all the parameters (name and startDate) are the same.
-    * @param a TeamMember object
+    * @param obj is a TeamMember object
     * @return true if the other TeamMember object has the same parameters as the current TeamMember object, false otherwise
     */
    public boolean equals(Object obj)
@@ -57,7 +57,7 @@ public class TeamMember
 
    /**
     * This is the testbed main where the constructor and the methods can be tested.
-    * @param args
+    * @param args are the arguments to test
     */
    public static void main(String [] args)
    {
