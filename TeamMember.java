@@ -61,6 +61,22 @@ public class TeamMember
     */
    public static void main(String [] args)
    {
-      
+      // test the constructor and the toString method
+	   Date oneDate = new Date("3/28/1999");
+	   TeamMember one = new TeamMember("Chris",oneDate);	// no problems
+	   System.out.println(one.toString());
+	   
+	   TeamMember two = new TeamMember("Someone",new Date("3-4-5"));	// error
+	   System.out.println(two.toString());
+	   
+	   // testing the getStartDate() method
+	   TeamMember three = new TeamMember("Chris",oneDate);
+	   System.out.println(three.getStartDate().toString());	// no problem
+	   
+	   // testing the equals() method
+	   System.out.println(one.equals(three));	// true
+	   
+	   TeamMember four = new TeamMember("Tony",oneDate);
+	   System.out.println(one.equals(four));	// false
    } // main()
 } // TeamMemeber

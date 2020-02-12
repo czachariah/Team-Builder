@@ -38,8 +38,11 @@ public class Date
 	   } 
 	   catch (Exception e)
 	   {
-		   System.out.println("ERROR! The date is not given in correct form! \n"
-		   		+ "Format: m/d/yyyy (Month and Day can be 1 or 2 digits long. Year must be 4 digits long.");
+		   /*
+		    * Do nothing here.
+		    * This error will create an object with the attributes 0/0/0
+		    * which will not pass the isValid() check when running the main program
+		    */
 	   }
 	   
    } // Date()
@@ -185,8 +188,34 @@ public class Date
     */
    public static void main(String [] args)
    {
+	   // test the first Date constructor
+	   Date first = new Date ("9/10/2011");		
+	   System.out.println(first.toString()); // no problems
 	   
+	   // test the second Date constructor
+	   Date second = new Date(first);
+	   System.out.println(second.toString()); // no problems
+	   
+	   // test the isValid() methods
+	   System.out.println(first.isValid());		// true
+	   System.out.println(second.isValid());	// true
+	   
+	   Date third = new Date("2/29/19");
+	   System.out.println(third.isValid());	// error, false
       
+	   // some errors when creating Date
+	   Date fourth = new Date("2-3-4");		// error
+	   Date fifth = new Date("2/3/-2004");	// error
+	   System.out.println(fourth.isValid());		// false
+	   System.out.println(fifth.isValid());			// false
+	   
+	   // test the equals() method with existing objects 
+	   System.out.println(first.equals(second));		// true
+	   System.out.println(second.equals(first));		// true
+	   
+	   // testig the equal() method with new Date object
+	   Date sixth = new Date("3/28/1999");			
+	   System.out.println(second.equals(sixth));		// false
    } // main()
 } // Date
 
