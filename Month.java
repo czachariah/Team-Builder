@@ -2,6 +2,9 @@
  This class defines the common constants.
  You can use this class as is, or define the constants yourself.  
  @author Lily Chang
+ @author Chris Zachariah (cvz2)
+ @author Anthony Topol (at877)
+ 
  */
 public class Month 
 {
