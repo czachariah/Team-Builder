@@ -2,6 +2,7 @@ import java.util.*;
 /**
   This class makes the Date object that is used in other classes.
  @author  Chris Zachariah (cvz2)
+ @author Anthony Topol (at877)
  */
 public class Date 
 {
