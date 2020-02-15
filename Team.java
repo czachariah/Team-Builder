@@ -71,27 +71,17 @@ public class Team
     * This method will add a new member to the team as long as this person already does not exist in the team to begin with.
     * @param m is the new team member to add
     */
-   public void add(TeamMember m)
-   {     
-	   if ((numMembers != 0) && (contains(m)))
+   public void add(TeamMember m) {
+	   if (numMembers == team.length) // grow the array to add more members 
 	   {
-		   System.out.println(m.toString() + " is already in the team.");
+		   grow();
+		   team[numMembers] = m;
+		   numMembers++;
 	   }
-	   else 
+	   else
 	   {
-		   if (numMembers == team.length) // grow the array to add more members
-		   {
-			   grow();
-			   team[numMembers] = m;
-			   System.out.println(team[numMembers].toString() + " has joined the team.");
-			   numMembers++;
-		   }
-		   else 
-		   {
-			   team[numMembers] = m;
-			   System.out.println(team[numMembers].toString() + " has joined the team.");
-			   numMembers++;
-		   }
+		   team[numMembers] = m;
+		   numMembers++;
 	   }
    } // add()
    

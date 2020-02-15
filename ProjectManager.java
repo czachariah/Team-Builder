@@ -61,7 +61,15 @@ public class ProjectManager
 	   
 	   if (newDate.isValid()) {
 		   TeamMember newMember = new TeamMember(name,newDate);
-		   cs213.add(newMember);
+		   if ((cs213.isEmpty() == false) && (cs213.contains(newMember) == true)) 
+		   {
+			   System.out.println(newMember.toString() + " is already in the team.");
+		   }
+		   else
+		   {
+			   cs213.add(newMember);
+			   System.out.println(newMember.toString() + " has joined the team.");
+		   }
 	   }
 	   else 
 	   {
